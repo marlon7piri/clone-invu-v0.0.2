@@ -31,7 +31,7 @@ const NavProductos = ({productos}) => {
      <Input   onChange ={handlerSearch} placeholder='Buscar..'/> 
     
     <div className="flex gap-4">
-    <BotonEXCEL productos={productos}/>
+    {/* <BotonEXCEL productos={productos}/> */}
     <BotonPDF productos={productos}/>
     </div>
       <Boton texto="Nuevo" href="/dashboard/productos/new" />

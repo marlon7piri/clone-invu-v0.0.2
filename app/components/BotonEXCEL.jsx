@@ -1,8 +1,8 @@
-
+/* 
 'use client'
 
 
-import React from 'react'
+import React from 'react';
 import * as XLSX from 'xlsx';
 import ExcelIcon from '../icons/ExcelIcon';
 
@@ -29,4 +29,16 @@ const BotonEXCEL = ({productos}) => {
   )
 }
 
-export default BotonEXCEL
+export default BotonEXCEL */
+
+import React from 'react'
+
+const BotonEXCEL2 = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default BotonEXCEL2
