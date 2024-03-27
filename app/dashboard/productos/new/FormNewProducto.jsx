@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { UrlWeb, urlproveedores } from "@/app/libs/UrlWeb";
-import { schemaYupProducto } from "@/app/libs/yup.config";
+import { schemaYupProducto } from "@/app/libs/yup";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";

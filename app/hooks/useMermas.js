@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { UrlWeb } from "@/app/libs/UrlWeb";
 import { useClientContext } from "@/app/context/ClientProvider";
-import { YupSchemaMermas } from "@/app/libs/yup.config";
+import { YupSchemaMermas } from "@/yup.config";
 import { useState } from "react";
 import { useEffect } from "react";
 

@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import TablaProductos from "./TablaProductos";
 import FiltrosProductos from "./FiltrosProductos";
 import { useFetchProductosByCategoria } from "@/app/hooks/useFetchProductosByCategoria";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+
 import { useSession } from "next-auth/react";
 import { jsPDF } from "jspdf";
 import { useFetchCategorias } from "@/app/hooks/useFetchCategorias";
