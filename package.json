@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "aws-sdk": "^2.1586.0",
+    "@mapbox/node-pre-gyp": "^1.0.11",
+    "aws-sdk": "^2.1608.0",
     "bcrypt": "^5.1.1",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
