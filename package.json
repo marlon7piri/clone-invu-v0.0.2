@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "aws-sdk": "^2.1608.0",
     "bcrypt": "^5.1.1",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
+    "mock-aws-s3": "^4.0.2",
     "mongoose": "^8.2.3",
     "next": "14.1.4",
     "next-auth": "4.24.7",
