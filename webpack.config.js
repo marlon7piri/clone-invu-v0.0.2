@@ -1,5 +1,9 @@
+
 module.exports = {
   module: {
+    resolve: {
+      extensions: [".js", ".jsx"],
+    },
     rules: [
       {
         test: /\.(js|jsx)$/,
