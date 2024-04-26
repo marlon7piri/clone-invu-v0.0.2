@@ -29,7 +29,7 @@ const FiltrosProductos = ({
         placeholder="Buscar...."
         value={terminobusqueda}
       />{" "}
-      <div className="bg-slate-300 p-2">
+      <div className=" p-2">
         {categorias.map((item) => {
           return (
             <div key={item._id} className=" ">
