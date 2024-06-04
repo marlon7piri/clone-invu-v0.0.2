@@ -18,6 +18,18 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  address: {
+    type: String,
+    default: false,
+  },
+  phone: {
+    type: String,
+    default: false,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 export const Usuario = models?.Usuario || model("Usuario", UserSchema);

@@ -4,7 +4,6 @@ import { connectDb } from "@/app/libs/mongoDb";
 import bcrypt from "bcrypt";
 
 export async function GET() {
-  
   try {
     connectDb();
     const usuarios = await Usuario.find({});
@@ -18,9 +17,17 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  const { username, password, email, isAdmin,restaurante/* , isActive, phone, address */ } =
-    await req.json();
- 
+  const {
+    username,
+    password,
+    email,
+    isAdmin,
+    restaurante,
+    isActive,
+    phone,
+    address,
+  } = await req.json();
+
   try {
     connectDb();
 
@@ -39,10 +46,10 @@ export async function POST(req) {
       password: passwordhas,
       email,
       isAdmin,
-      restaurante
-      /* isActive,
+      restaurante,
+      isActive,
       phone,
-      address, */
+      address,
     });
 
     return NextResponse.json(

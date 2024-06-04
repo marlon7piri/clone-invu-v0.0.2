@@ -49,7 +49,6 @@ const config = {
         token.email = user.email;
         token.id = user.id;
         token.isAdmin = user.isAdmin;
-        token.restaurante = user.restaurante;
       }
       return token;
     },
@@ -59,7 +58,6 @@ const config = {
         session.email = token.email;
         session.id = token.id;
         session.isAdmin = token.isAdmin;
-        session.restaurante = token.restaurante;
       }
 
       return session;
