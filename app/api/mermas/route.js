@@ -8,9 +8,7 @@ export async function GET() {
   try {
     connectDb();
 
-    const idRestaurante = await useSessionUser()
-
-    const allproducts = await Merma.find({restaurante:idRestaurante}).populate("producto");
+    const allproducts = await Merma.find({});
 
     if (!allproducts) return NextResponse.json({ message: "No hay productos" });
 
@@ -23,30 +21,25 @@ export async function GET() {
 export async function POST(req) {
   const body = await req.json();
 
+  console.log(body);
+
   try {
     connectDb();
 
-    const productfound = await Producto.findById({ _id: body.idproduct });
+    const producto = await Producto.findById(body.idproduct);
+
     const merma = await Merma.create({
-      producto: productfound._id,
+      producto: producto.nombre,
       fecha: body.fecha,
       servicio: body.servicio,
       cantidad: body.cantidad,
       causa: body.causa,
       observaciones: body.observaciones,
-      restaurante: productfound.restaurante,
     });
-    
-    await merma.save();
-    const productoUpdated = await Producto.findOneAndUpdate(
-      { _id: body.idproduct },
-      { $inc: { stock: -body.cantidad } },
-      { new: true }
-    );
 
-    const newproducto = await productoUpdated.save();
+    const mermasaved = await merma.save();
 
-    return NextResponse.json(newproducto);
+    return NextResponse.json(mermasaved);
   } catch (error) {
     return NextResponse.json({ message: error });
   }

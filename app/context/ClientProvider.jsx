@@ -3,7 +3,7 @@
 import { UrlWeb } from "@/app/libs/UrlWeb";
 
 import { SessionProvider } from "next-auth/react";
-import  { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ClientContext = createContext();
 
@@ -20,10 +20,13 @@ export const ClientProvider = ({ children }) => {
   const [dinerototal, setDinerototal] = useState(0);
   const [avisodecorreo, setAvisodecorreo] = useState(false);
 
-   const getProductoPorCategoria = async (categoria) => {
+  /*  const getProductoPorCategoria = async () => {
+    const categoria = "barra";
     try {
       setLoading(true);
       const res = await fetch(`${UrlWeb}/productos/categoria/${categoria}`);
+      const data = await res.json();
+      setProductos(data);
       if (res.ok) {
         const data = await res.json();
         setProductos(data);
@@ -34,10 +37,12 @@ export const ClientProvider = ({ children }) => {
       } else {
         console.log(res);
       }
-    } catch (error) {}
-  };
+    } catch (error) {
+      console.log(error);
+    }
+  }; */
 
-  useEffect(() => {
+  /*  useEffect(() => {
     try {
       const obtenerTodosLosProductos = async () => {
         const res = await fetch(`${UrlWeb}/productos`, { cache: "no-cache" });
@@ -47,9 +52,9 @@ export const ClientProvider = ({ children }) => {
       };
       obtenerTodosLosProductos();
     } catch (error) {
-      throw new Error(error)
+      throw new Error(error);
     }
-  }, []);
+  }, []); */
 
   const ordenarPorNombre = () => {
     let res = tablaProductos.sort((a, b) =>
@@ -82,7 +87,7 @@ export const ClientProvider = ({ children }) => {
           setTotalProductos,
           totalProductos,
           tablaProductos,
-          getProductoPorCategoria,
+          /*  getProductoPorCategoria, */
           mermas,
           setMermas,
           setTablademermas,

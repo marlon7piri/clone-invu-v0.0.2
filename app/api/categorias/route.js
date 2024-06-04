@@ -6,17 +6,20 @@ export async function GET() {
   try {
     connectDb();
 
-    const categorias = await Categoria.find({})
+    const categorias = await Categoria.find({});
 
-    return NextResponse.json( categorias);
+    console.log(categorias);
+
+    return NextResponse.json(categorias);
   } catch (error) {
     return NextResponse.json({ message: error });
   }
 }
 
 export async function POST(req) {
+  const { nombre } = await req.json();
 
-  const {nombre} = await req.json();
+  console.log(nombre);
   try {
     connectDb();
 
@@ -26,8 +29,8 @@ export async function POST(req) {
         "No se pudo crear la categoria porque ya existe"
       );
 
-     await Categoria.create({
-      nombre
+    await Categoria.create({
+      nombre,
     });
 
     return NextResponse.json("Categoria creada");

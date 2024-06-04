@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 const MermasSchema = new mongoose.Schema(
   {
     producto: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Producto",
+      type: String,
+      required: true,
     },
     fecha: {
       type: String,
@@ -25,10 +25,6 @@ const MermasSchema = new mongoose.Schema(
     observaciones: {
       type: String,
       required: true,
-    },
-    restaurante: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Restaurante",
     },
   },
   {

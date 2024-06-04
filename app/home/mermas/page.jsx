@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import FormMermas from "./FormMermas";
@@ -14,10 +14,8 @@ export default function Mermas() {
     setProductosfiltered,
   } = useFetchProducts();
 
-
   return (
-    <div className="w-ful h-screen flex flex-col justify-center p-4 overflow-scroll">
-      <h1 className="text-center text-4xl">Mermas</h1>
+    <div className="w-full h-screen flex flex-col justify-center p-4 overflow-scroll">
       <FormMermas
         productos={productos}
         productosfiltered={productosfiltered}

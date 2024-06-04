@@ -18,8 +18,6 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  restaurante: { type: Schema.Types.ObjectId, ref: "Restaurante" },
-
 });
 
 export const Usuario = models?.Usuario || model("Usuario", UserSchema);

@@ -4,10 +4,9 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import TablaMermas from "./TablaMermas";
 
-const FiltrosMermas = ({ mermas }) => {
-  /* const [fecha, setFecha] = useState("");
-  const [tablaMermas, settablaMermas] = useState(data);
-  const [mermas, setMermas] = useState(data);
+const FiltrosMermas = ({ mermas, setMermas }) => {
+  const [fecha, setFecha] = useState("");
+  const [tablaMermas, settablaMermas] = useState(mermas);
   const router = useRouter();
 
   const filtrar = () => {
@@ -24,31 +23,29 @@ const FiltrosMermas = ({ mermas }) => {
   };
   const limpiar = () => {
     setMermas(tablaMermas);
-  }; */
+  };
   return (
     <div>
       <input
         type="date"
-       /*  onChange={(e) => setFecha(e.target.value)}
-        value={fecha} */
+        onChange={(e) => setFecha(e.target.value)}
+        value={fecha}
         className="cursor-pointer"
       />
       <button
         type="submit"
-       /*  onClick={filtrar} */
+        onClick={filtrar}
         className="w-max ml-4 bg-sky-500  hover:bg-sky-900 px-4 py-2 rounded-sm"
       >
         Filtrar
       </button>
       <button
         type="submit"
-      /*   onClick={limpiar} */
+        onClick={limpiar}
         className="w-max ml-4 bg-sky-500  hover:bg-sky-900 px-4 py-2 rounded-sm"
       >
         Limpiar
       </button>
-
-     {/*  <TablaMermas mermas={mermas}/> */}
     </div>
   );
 };

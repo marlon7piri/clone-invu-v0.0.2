@@ -7,10 +7,6 @@ import DashboardProductosMasYMenosVendidos from "./DashboardProductosMasYMenosVe
 import DashboardProductosCasiAgotados from "./DashboardProductosCasiAgotados";
 
 const Dashboard = () => {
-  
-
-
-
   return (
     <div className="w-full h-screen">
       <h1 className="text-3xl font-bold text-center my-6 text-slate-800">
@@ -19,11 +15,9 @@ const Dashboard = () => {
 
       <section className={styles.section}>
         {" "}
-{/*         <DashboardGrafica /> */}
-
-          <DashboardTotalProductos />
-          <DashboardDineroEnInventario />
-       
+        {/*         <DashboardGrafica /> */}
+        <DashboardTotalProductos />
+        <DashboardDineroEnInventario />
         <DashboardProductosMasYMenosVendidos />
         <DashboardProductosCasiAgotados />
       </section>

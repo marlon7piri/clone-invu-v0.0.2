@@ -5,12 +5,13 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 @media (width<600px) {
   .section {
     width: 100%;
     flex-direction: column;
+    margin-top: 50px;
   }
 }

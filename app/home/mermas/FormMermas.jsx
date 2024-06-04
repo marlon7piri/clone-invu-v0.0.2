@@ -107,10 +107,7 @@ const FormMermas = ({ productos, productosfiltered, setProductosfiltered }) => {
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit(enviarData)}
-      className="flex flex-col m-auto p-4 w-2/4  gap-4 mt-28 relative"
-    >
+    <form onSubmit={handleSubmit(enviarData)} className={styles.form_container}>
       {error && <span className="bg-red-500 text-white p-2">{error}</span>}
       <input onChange={handlerChange} value={busqueda} placeholder="producto" />
 

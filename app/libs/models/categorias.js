@@ -4,7 +4,7 @@ const CategoriaSchema = new mongoose.Schema({
   nombre: {
     type: String,
     required: true,
-  }
+  },
 });
 
 export const Categoria =

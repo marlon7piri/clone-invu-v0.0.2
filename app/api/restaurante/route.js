@@ -5,13 +5,11 @@ import { Restaurante } from "@/app/libs/models/restaurante";
 import { Producto } from "@/app/libs/models/productos";
 import bcrypt from "bcrypt";
 
-
 export async function GET() {
   try {
     connectDb();
-   
 
-    const restaurantes = await Restaurante.find({}).populate("usuarios");
+    const restaurantes = await Restaurante.find({});
 
     return NextResponse.json({ restaurantes: restaurantes });
   } catch (error) {
@@ -22,8 +20,6 @@ export async function GET() {
 export const POST = async () => {
   try {
     connectDb();
-    /* const restaurante = await Restaurante.findById({_id:'65ef9724828ad8a45c4aa0a6'
-    }); */
 
     const restaurante = await Restaurante.create({
       nombre: "Dominos Pizza",

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Loading = () => {
+const loading = () => {
   return (
-   <div className='flex w-full h-full justify-center items-center'>
-     <div class="loader"></div>
-   </div>
-  )
-}
+    <div className="flex w-full h-full justify-center items-center">
+      <h1>Loading....</h1>
+    </div>
+  );
+};
 
-export default Loading
+export default loading;

@@ -1,22 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TablaProductos from "./TablaProductos";
 import FiltrosProductos from "./FiltrosProductos";
-import { useFetchProductosByCategoria } from "@/app/hooks/useFetchProductosByCategoria";
 
 import { useSession } from "next-auth/react";
 import { jsPDF } from "jspdf";
 import { useFetchCategorias } from "@/app/hooks/useFetchCategorias";
 import { UrlWeb } from "@/app/libs/UrlWeb";
 import toast from "react-hot-toast";
+import { useFetchProductosByCategoria } from "@/app/hooks/useFetchProductosByCategoria";
 
 const Categoria = ({ params }) => {
-  const { productos, isloading, productosfiltered, setProductosfiltered } =
-    useFetchProductosByCategoria(params.categoria);
-
   const { categorias, categoriasfiltradas, setCategoriasfiltradas } =
     useFetchCategorias();
+  const { isloading, productos, productosfiltered, setProductosfiltered } =
+    useFetchProductosByCategoria(params.categoria);
 
   const [terminobusqueda, setTerminobusqueda] = useState("");
   const [filtros, setFiltros] = useState({
@@ -151,9 +150,10 @@ const Categoria = ({ params }) => {
   };
 
   const filtrarPorCategoria = () => {
-    const result = productos.filter((product) =>
-      categoriasSeleccionadas.includes(product.categoria.nombre)
-    );
+    const result = productos.filter((product) => {
+      return categoriasSeleccionadas.includes(product.categoria.nombre);
+    });
+
     setProductosfiltered(result);
   };
   return (

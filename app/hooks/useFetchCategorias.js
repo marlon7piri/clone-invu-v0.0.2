@@ -15,6 +15,7 @@ export const useFetchCategorias = () => {
     };
 
     obtenerCategorias();
+    console.log(categorias);
   }, []);
   return { categorias, categoriasfiltradas, setCategoriasfiltradas };
 };

@@ -18,8 +18,7 @@ export const useMermas = (productos) => {
   /* const { totalProductos, setTotalProductos } = useClientContext(); */
   const [idproduct, setIdproduct] = useState("");
   const [productoexist, setProductoexist] = useState();
-
- 
+  const [isloading, setLoading] = useState(false);
 
   const {
     register,
@@ -96,5 +95,5 @@ export const useMermas = (productos) => {
     enviarData,
     handlerSelect,
     handlerChange,
-  }
+  };
 };

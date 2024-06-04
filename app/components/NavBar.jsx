@@ -5,7 +5,7 @@ import Image from "next/image";
 import ProductIcon from "../icons/ProductIcon";
 import UserIcon from "../icons/UserIcon";
 import LogoutIcon from "../icons/LogoutIcon";
-import {signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import HomeIcon from "../icons/HomeIcon";
 import { usePathname } from "next/navigation";
 import DashboardIcon from "../icons/DashboardIcon";
@@ -17,7 +17,6 @@ const NavBar = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession();
-  console.log(session);
 
   const fondoLinks = (links) => {
     const stylespath =
@@ -34,7 +33,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-slate-50 border border-slate-950 w-1/4 h-screen flex  flex-col  p-4 rounded-md">
+    <nav className="bg-slate-50 border border-slate-950 w-[200px] h-screen flex  flex-col  p-4 rounded-md">
       <Image
         alt="logo al alma"
         src="/logo.jpg"
@@ -43,7 +42,7 @@ const NavBar = () => {
         height={120}
         className=" rounded-full p-2 "
       />
-       <span>Hola {session?.username}</span>
+      <span>Hola {session?.username}</span>
       <ul className="w-full mt-6 flex flex-col gap-4">
         <div className={fondoLinks("/dashboard")}>
           {" "}
@@ -99,8 +98,6 @@ const NavBar = () => {
           </button>
         </div>
       </ul>
-
-     
     </nav>
   );
 };
