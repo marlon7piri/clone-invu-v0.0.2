@@ -20,11 +20,9 @@ const UserSchema = new Schema({
   },
   address: {
     type: String,
-    default: false,
   },
   phone: {
     type: String,
-    default: false,
   },
   isActive: {
     type: Boolean,

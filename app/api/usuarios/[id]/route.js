@@ -1,4 +1,4 @@
-import { Usuario} from "@/app/libs/models/usuarios";
+import { Usuario } from "@/app/libs/models/usuarios";
 import { connectDb } from "@/app/libs/mongoDb";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
@@ -26,9 +26,17 @@ export async function GET(req, { params }) {
 
     if (!usuario) return NextResponse.json(404);
 
-    const {username, password, email, isAdmin, isActive, phone, address,restaurante} =usuario
+    const { username, password, email, isAdmin, isActive, phone, address } =
+      usuario;
 
-    return NextResponse.json({username, email, isAdmin, isActive, phone, address,restaurante});
+    return NextResponse.json({
+      username,
+      email,
+      isAdmin,
+      isActive,
+      phone,
+      address,
+    });
   } catch (error) {
     return NextResponse.json({ message: error });
   }
@@ -37,7 +45,6 @@ export async function GET(req, { params }) {
 export async function PUT(req, { params }) {
   const id = params.id;
   const data = await req.json();
-
 
   const passwordhased = await bcrypt.hash(data.password, 10);
 

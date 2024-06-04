@@ -22,7 +22,7 @@ export async function POST(req) {
     password,
     email,
     isAdmin,
-    restaurante,
+
     isActive,
     phone,
     address,
@@ -46,7 +46,7 @@ export async function POST(req) {
       password: passwordhas,
       email,
       isAdmin,
-      restaurante,
+
       isActive,
       phone,
       address,
