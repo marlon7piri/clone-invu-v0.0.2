@@ -18,10 +18,8 @@ export const useFetchProductosByCategoria = (params) => {
           cache: "no-cache",
         });
 
-        console.log(res);
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
 
           setProductos(data);
           setProductosfiltered(data);

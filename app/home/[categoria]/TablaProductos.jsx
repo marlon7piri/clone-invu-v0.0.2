@@ -9,8 +9,6 @@ import toast from "react-hot-toast";
 const TablaProductos = ({ productosfiltered, isloading }) => {
   const { pedidos, setPedidos, ordenarPorNombre } = useClientContext();
 
-  console.log(productosfiltered);
-
   const addPedidos = (product) => {
     const product_exist = pedidos.find((e) => {
       return e._id === product._id;
