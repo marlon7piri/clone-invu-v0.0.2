@@ -1,12 +1,9 @@
-
-
-import Login from './login/page'
+import Login from "./login/page";
 
 export default function page() {
   return (
-    <main className='w-full h-screen'>
-     
-     <Login/>
+    <main className="w-full h-screen">
+      <Login />
     </main>
-  )
+  );
 }
