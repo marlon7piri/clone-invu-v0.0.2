@@ -1,7 +1,7 @@
 import { Usuario } from "@/app/libs/models/usuarios";
 
 import CredentialsProvider from "next-auth/providers/credentials";
-import NextAuth from "next-auth";
+import NextAuth, { getServerSession } from "next-auth";
 import { connectDb } from "@/app/libs/mongoDb";
 import bcrypt from "bcrypt";
 
@@ -49,6 +49,7 @@ const config = {
         token.email = user.email;
         token.id = user.id;
         token.isAdmin = user.isAdmin;
+        token.restaurante_id = user.restaurante_id;
       }
       return token;
     },
@@ -58,6 +59,7 @@ const config = {
         session.email = token.email;
         session.id = token.id;
         session.isAdmin = token.isAdmin;
+        session.restaurante_id = token.restaurante_id;
       }
 
       return session;
@@ -66,5 +68,10 @@ const config = {
 };
 
 export const authOptions = NextAuth(config);
+
+export const getSessionReal = async (req, res) => {
+  const sessioncomplet = await getServerSession(req, res, authOptions);
+  return sessioncomplet;
+};
 
 export { authOptions as GET, authOptions as POST };

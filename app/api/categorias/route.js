@@ -1,3 +1,4 @@
+import { IdRestauranteAlAlma } from "@/app/libs/id_restaurante";
 import { Categoria } from "@/app/libs/models/categorias";
 import { connectDb } from "@/app/libs/mongoDb";
 import { NextResponse } from "next/server";
@@ -6,9 +7,9 @@ export async function GET() {
   try {
     connectDb();
 
-    const categorias = await Categoria.find({});
-
-    console.log(categorias);
+    const categorias = await Categoria.find({
+      restaurante_id: IdRestauranteAlAlma,
+    });
 
     return NextResponse.json(categorias);
   } catch (error) {
@@ -17,7 +18,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  const { nombre } = await req.json();
+  const { nombre, restaurante_id } = await req.json();
 
   console.log(nombre);
   try {
@@ -31,6 +32,7 @@ export async function POST(req) {
 
     await Categoria.create({
       nombre,
+      restaurante_id: IdRestauranteAlAlma,
     });
 
     return NextResponse.json("Categoria creada");

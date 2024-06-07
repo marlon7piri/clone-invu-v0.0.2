@@ -21,17 +21,24 @@ const ProductsSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    categoria: {
-      type: String,
-    },
     area: {
       type: String,
     },
     unidad: {
       type: String,
     },
-    proveedor: {
-      type: String,
+
+    category_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Categoria",
+    },
+    proveedor_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Proveedor",
+    },
+    restaurante_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Restaurante",
     },
     mas_vendido: {
       type: Boolean,

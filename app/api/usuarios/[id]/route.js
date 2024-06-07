@@ -26,8 +26,16 @@ export async function GET(req, { params }) {
 
     if (!usuario) return NextResponse.json(404);
 
-    const { username, password, email, isAdmin, isActive, phone, address } =
-      usuario;
+    const {
+      username,
+      password,
+      email,
+      isAdmin,
+      isActive,
+      phone,
+      address,
+      restaurante_id,
+    } = usuario;
 
     return NextResponse.json({
       username,
@@ -36,6 +44,7 @@ export async function GET(req, { params }) {
       isActive,
       phone,
       address,
+      restaurante_id,
     });
   } catch (error) {
     return NextResponse.json({ message: error });

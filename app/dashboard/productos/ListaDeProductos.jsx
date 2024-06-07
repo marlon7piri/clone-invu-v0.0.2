@@ -95,7 +95,7 @@ const ListaDeProductos = ({ productos }) => {
                   </td>
                   <td className="px-6 py-4">{product.itbms} %</td>
 
-                  <td className="px-6 py-4">{product.categoria.nombre}</td>
+                  <td className="px-6 py-4">{product.category_id.nombre}</td>
                   <td className="px-6 py-4">
                     {convertidordefecha(product.createdAt)}
                   </td>

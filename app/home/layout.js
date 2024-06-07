@@ -1,15 +1,11 @@
-
 import React from "react";
 import NavBarClient from "./NavBarClient";
 
 const layout = ({ children }) => {
-
   return (
-    <div >
+    <div className="">
       <NavBarClient />
-   <div className="overflow-y-scroll">
-   {children}
-   </div>
+      <div className="overflow-y-scroll">{children}</div>
     </div>
   );
 };

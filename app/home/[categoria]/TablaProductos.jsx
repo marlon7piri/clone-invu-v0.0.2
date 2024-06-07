@@ -89,7 +89,7 @@ const TablaProductos = ({ productosfiltered, isloading }) => {
                 <td className="px-6 py-4 ">{product.stock_min}</td>
                 <td className="px-6 py-4 ">{product.unidad}</td>
                 <td className="px-6 py-4">{product.proveedor}</td>
-                <td className="px-6 py-4">{product.categoria.nombre}</td>
+                <td className="px-6 py-4">{product.category_id.nombre}</td>
 
                 <td className="w-max px-2 py-2  flex gap-1 justify-center items-center">
                   <Link

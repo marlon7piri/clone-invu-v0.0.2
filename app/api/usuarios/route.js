@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Usuario } from "@/app/libs/models/usuarios";
 import { connectDb } from "@/app/libs/mongoDb";
 import bcrypt from "bcrypt";
+import { Restaurante } from "@/app/libs/models/restaurante";
 
 export async function GET() {
   try {
@@ -22,7 +23,7 @@ export async function POST(req) {
     password,
     email,
     isAdmin,
-
+    restaurante_id,
     isActive,
     phone,
     address,
@@ -41,19 +42,31 @@ export async function POST(req) {
     }
     const salt = await bcrypt.genSalt(10);
     const passwordhas = await bcrypt.hash(password, salt);
-    await Usuario.create({
+    const newuser = await Usuario.create({
       username,
       password: passwordhas,
       email,
       isAdmin,
-
+      restaurante_id,
       isActive,
       phone,
       address,
     });
 
+    console.log("restaurante_id", newuser.restaurante_id);
+
+    const restaurante = await Restaurante.findById(newuser.restaurante_id);
+
+    console.log({ restauranteencontrado: restaurante });
+    const usercreated = await newuser.save();
+
+    console.log({ ususariocreado: usercreated });
+
+    restaurante.usuarios.push(usercreated._id);
+    await restaurante.save();
+
     return NextResponse.json(
-      { message: "Usuario Registrado " },
+      { message: "Usuario Registrado en el restaurante " + restaurante.nombre },
       { status: 201 }
     );
   } catch (error) {

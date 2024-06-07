@@ -23,6 +23,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 input,
@@ -349,8 +352,8 @@ textarea {
   z-index: 100;
 }
 
-.menu > Link:hover{
-color:red
+.menu > Link:hover {
+  color: red;
 }
 
 .boton_hamburguesa {
@@ -358,7 +361,7 @@ color:red
   font-size: 30px;
 }
 
-.boton_hamburguesa_close{
+.boton_hamburguesa_close {
   display: none;
   font-size: 30px;
 }
@@ -382,7 +385,6 @@ color:red
   color: red;
   cursor: pointer;
 }
-
 
 @media (width<600px) {
   .nav_container {
@@ -419,13 +421,10 @@ color:red
     z-index: 100;
   }
 
-  .boton_hamburguesa_close{
+  .boton_hamburguesa_close {
     font-size: 30px;
     display: block;
     z-index: 500;
-    color:black
-
+    color: black;
   }
 }
-
-

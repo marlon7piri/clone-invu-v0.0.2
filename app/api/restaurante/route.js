@@ -4,12 +4,18 @@ import { NextResponse } from "next/server";
 import { Restaurante } from "@/app/libs/models/restaurante";
 import { Producto } from "@/app/libs/models/productos";
 import bcrypt from "bcrypt";
+import {
+  IdRestauranteAlAlma,
+  IdRestauranteDominos,
+} from "@/app/libs/id_restaurante";
 
 export async function GET() {
   try {
     connectDb();
 
-    const restaurantes = await Restaurante.find({});
+    const restaurantes = await Restaurante.find({
+      _id: IdRestauranteDominos,
+    }).populate("usuarios");
 
     return NextResponse.json({ restaurantes: restaurantes });
   } catch (error) {
@@ -17,42 +23,15 @@ export async function GET() {
   }
 }
 
-export const POST = async () => {
+export const POST = async (req, res) => {
+  const body = await req.json();
   try {
     connectDb();
 
     const restaurante = await Restaurante.create({
-      nombre: "Dominos Pizza",
-    });
-    const passwordhash = await bcrypt.hash("marlon7piri", 10);
-
-    const user = await Usuario.create({
-      username: "Marlon Rodriguez",
-      password: passwordhash,
-      email: "marlon7piri@gmail.com",
-      restaurante: restaurante._id,
-      isAdmin: true,
+      nombre: body.nombre,
     });
 
-    if (!user) {
-      return NextResponse.json({ message: "No se puedo crear el usuario" });
-    }
-
-    const producto = await Producto.create({
-      nombre: "Pizza Pepperoni",
-      cantidad: 100,
-      categoria: "cocina",
-      restaurante: restaurante._id,
-    });
-
-    if (!producto) {
-      return NextResponse.json({ message: "No se puedo crear el usuario" });
-    }
-    restaurante.usuarios.push(user._id);
-    restaurante.productos.push(producto._id);
-
-    await producto.save();
-    await user.save();
     const newresta = await restaurante.save();
 
     return NextResponse.json({ message: "All done", newresta });

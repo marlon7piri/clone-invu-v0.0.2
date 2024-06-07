@@ -3,14 +3,16 @@ import { Usuario } from "../libs/models/usuarios";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { connectDb } from "../libs/mongoDb";
+import { useSession } from "next-auth/react";
 
 export const useSessionUser = async () => {
   try {
     connectDb();
-    const session = await getServerSession(authOptions);
-    const usuario = await Usuario.findOne({ email: session.user.email });
+    const { data: session } = useSession();
 
-    return usuario.restaurante;
+    console.log("session", session);
+
+    return session.restaurante_id;
   } catch (error) {
     throw new Error(error);
   }
